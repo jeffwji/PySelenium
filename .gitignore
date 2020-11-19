@@ -5,3 +5,4 @@ nohup.out
 *.log
 .vscode
 __pycache__
+*.egg-info

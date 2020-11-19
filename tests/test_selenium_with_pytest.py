@@ -65,7 +65,7 @@ class TestURL(BasicFirefoxTest):
         search_box = self.driver.find_element_by_xpath("//input[@name='q']")
         search_box.send_keys(search_text)
 
-        time.sleep(5)
+        time.sleep(2)
 
         ''' 动作 '''
         # Option 1 - To Submit the search
