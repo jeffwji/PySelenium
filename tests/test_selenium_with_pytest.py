@@ -1,8 +1,12 @@
 '''
 depends on `pytest-asyncio`
 
-set PYTHONPATH = "/path/to/DevOpsDashboard/Monitor"
-pytest
+Console debug:
+  set PYTHONPATH = "/path/to/DevOpsDashboard/Monitor"
+  pytest
+
+idea:
+  Settings(Or Preferences) -> Tools -> Python integrated tools -> testing -> default test runner -> pytest
 '''
 
 # Import the 'modules' that are required for execution for Selenium test automation
@@ -18,13 +22,13 @@ import sys
 def firefox_driver_init(request):
     """ Fixture for Firefox """
     ''' 启动本地测试驱动 '''
-    #driver = webdriver.Firefox()
+    driver = webdriver.Firefox()
 
     ''' 连接远程测试驱动 '''
-    driver = webdriver.Remote(
-        command_executor='http://127.0.0.1:4444/wd/hub',
-        desired_capabilities=DesiredCapabilities.FIREFOX
-    )
+    #driver = webdriver.Remote(
+    #    command_executor='http://127.0.0.1:4444/wd/hub',
+    #    desired_capabilities=DesiredCapabilities.FIREFOX
+    #)
 
     request.cls.driver = driver
     yield
@@ -34,13 +38,13 @@ def firefox_driver_init(request):
 @pytest.fixture(scope="class")
 def chrome_driver_init(request):
     """ Fixture for Chrome """
-    #driver = webdriver.Chrome()
+    driver = webdriver.Chrome()
 
     ''' 连接远程测试驱动 '''
-    driver = webdriver.Remote(
-        command_executor='http://127.0.0.1:4444/wd/hub',
-        desired_capabilities=DesiredCapabilities.CHROME
-    )
+    #driver = webdriver.Remote(
+    #    command_executor='http://127.0.0.1:4444/wd/hub',
+    #    desired_capabilities=DesiredCapabilities.CHROME
+    #)
 
     request.cls.driver = driver
     yield
