@@ -1,27 +1,21 @@
 ## Local
 
-Download `geckodriver` to `/usr/bin` or `/usr/local/bin`.
+Browser driver download locations:
 
-| Browser      | downloads |
+| Browser | location |
 | - | - |
-| Chrome      | https://sites.google.com/a/chromium.org/chromedriver/       |
+| Chrome | https://sites.google.com/a/chromium.org/chromedriver/       |
 | Edge   | https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/        |
 | Firefox | https://github.com/mozilla/geckodriver/releases |
 | Safari | https://webkit.org/blog/6900/webdriver-support-in-safari-10/ |
 
-```sh
-$  geckodriver 
-1602985440263	geckodriver	INFO	Listening on 127.0.0.1:4444
-```
-
-在本地 `4444` 端口开启监听
-
+设置 $PATH，以便 test case 可以启动它们。
 
 ## Remote
 
-The Selenium server is only required if you want to use the remote WebDriver.
+在 remote server 上下载相应的 browser driver，并设置 $PATH 以便 server driver 能够找到并启动它。
 
-Download from: https://www.selenium.dev/
+Download selenium server from: `https://www.selenium.dev/downloads/`
 
 ```sh
 $ java -jar selenium-server-standalone-3.141.59.jar
@@ -32,6 +26,5 @@ $ java -jar selenium-server-standalone-3.141.59.jar
 21:43:52.548 INFO [SeleniumServer.boot] - Selenium Server is up and running on port 4444
 ```
 
-在 `4444` 端口开启对外监听
+server 在 `4444` 端口开启对外监听
 
-注意：`geckodriver` 也需要被安装在远程 Selenium server 上。
